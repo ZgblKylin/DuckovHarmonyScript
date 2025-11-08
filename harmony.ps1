@@ -51,6 +51,7 @@ forEach ($folder in Get-ChildItem -Directory) {
         # 创建指向Harmony mod文件夹的符号链接
         # Create symlink to the Harmony mod folder
         New-Item -ItemType SymbolicLink -Path "$($folder.FullName)\0Harmony.dll" -Target "$HarmonyModPath\0Harmony.dll"
+        Write-Host $prefix"Created symbol link $($folder.FullName)\0Harmony.dll"
       }
       else {
         # 已经是符号链接则跳过
@@ -59,3 +60,4 @@ forEach ($folder in Get-ChildItem -Directory) {
     }
   }
 }
+
