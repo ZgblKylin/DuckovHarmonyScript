@@ -48,12 +48,12 @@ forEach ($folder in Get-ChildItem -Directory) {
         # 删除0Harmony.dll
         Write-Host $prefix -NoNewline -ForegroundColor Green
         Write-Host "Removing 0Harmony.dll from $($folder.Name)"
+        Write-Host $prefix -NoNewline -ForegroundColor Green
         Remove-Item "$($folder.FullName)\0Harmony.dll" -Force
         # 创建指向Harmony mod文件夹的符号链接
         # Create symlink to the Harmony mod folder
+        Write-Host "Creating symbol link $($folder.FullName)\0Harmony.dll"
         New-Item -ItemType SymbolicLink -Path "$($folder.FullName)\0Harmony.dll" -Target "$HarmonyModPath\0Harmony.dll"
-        Write-Host $prefix -NoNewline -ForegroundColor Green
-        Write-Host "Created symbol link $($folder.FullName)\0Harmony.dll"
       }
       else {
         # 已经是符号链接则跳过
