@@ -62,3 +62,5 @@ forEach ($folder in Get-ChildItem -Directory) {
     }
   }
 }
+
+Pause
